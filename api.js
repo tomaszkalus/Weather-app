@@ -23,7 +23,7 @@ const api = {
 
     // Function for constructing a geocoding query
     getGeocodingQuery: function (query) {
-        const base_url = 'http://api.openweathermap.org/geo/1.0/direct?';
+        const base_url = 'https://api.openweathermap.org/geo/1.0/direct?';
         const url = new URLSearchParams();
         url.append('q', query);
         url.append('limit', 5);

@@ -16,12 +16,15 @@ function presentWeatherData(data) {
     const humidity = data.main.humidity + '%';
     const wind_speed = Math.round(data.wind.speed) + ' km/h';
     const weather_desc = data.weather[0].description;
+    const icon = data.weather[0].icon;
+    const icon_url = `https://openweathermap.org/img/wn/${icon}@2x.png`;
     const flag_url = "https://countryflagsapi.com/png/" + data.sys.country;
     const sunrise = 'Sunrise: ' + getTime(data.sys.sunrise);
     const sunset = 'Sunset: ' + getTime(data.sys.sunset);
 
 
     document.querySelector('#country-flag').src = flag_url;
+    document.querySelector('#weather-icon').src = icon_url;
     document.querySelector('#city_name').textContent = city_name;
     document.querySelector('#temperature').textContent = temp;
     document.querySelector('#humidity').textContent = humidity;
@@ -31,6 +34,7 @@ function presentWeatherData(data) {
     document.querySelector('#sunrise').textContent = sunrise;
     document.querySelector('#sunset').textContent = sunset;
     document.querySelector('#state').textContent = state;
+    
 }
 
 export { presentWeatherData };
